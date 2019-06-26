@@ -9,7 +9,7 @@
  */
 
 // Решение
-const f = function(num) {
+ function f(num) {
   if (typeof(num) === "number") {
     return num * num * num;
   } else {

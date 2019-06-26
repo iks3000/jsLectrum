@@ -34,6 +34,8 @@ function isPositive(arr) {
   return newArray;
 }
 
+isPositive(array);
+
 /* не удалять */
 isPositive(-3); // false
 isPositive(3); // true

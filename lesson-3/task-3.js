@@ -11,7 +11,7 @@
 
 // Решение
 
-const f = function(x, y, z) {
+function f(x, y, z) {
   if (typeof(x) === 'number' && typeof(y) === 'number' && typeof(z) === 'number') {
     return (x - y) / z;
   } else {

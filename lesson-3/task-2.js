@@ -10,7 +10,7 @@
  */
 
 // Решение
-const f = function(sum) {
+function f(sum) {
   for (let i = 1; i < arguments.length; i++) {
     if (typeof(arguments[i]) === 'number') {
       sum += arguments[i];
