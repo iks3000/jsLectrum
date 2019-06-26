@@ -16,6 +16,21 @@
 
 // Решение
 
+var i = 0;
+function f(arr) {
+    if (typeof(arr) === 'string' || typeof(arr) !== 'object') {
+        throw new Error('parameter type should be an array');
+    } else if (!arr || !arr.length) {
+        throw new Error('parameter can\'t be an empty')
+    } else {
+        console.log(arr[i]);
+        i++;
+        if (i < arr.length) {
+            f(arr)
+        };
+    }
+}
+
 /* не удалять */
 f([1, 2, 3]);
 // 1
