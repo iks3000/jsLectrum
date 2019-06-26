@@ -14,6 +14,22 @@
 
 // Решение
 
+function isEven(arr) {
+  if(typeof(arr) === 'number') {
+    return arr % 2 === 0;
+  } else if (typeof(arr) === 'object') {
+    var newArray = [];
+    for (let i = 0, lengthArray = arr.length; i < lengthArray; i++) {
+      if (arr[i] % 2 === 0) {
+        newArray.push(Number(arr[i]));
+      }
+    }
+    return newArray;
+  } else {
+    throw new Error('parameter type is not a Number');
+  }
+}
+
 /* не удалять */
 isEven(3); // false
 isEven(4); // true
