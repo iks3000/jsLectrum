@@ -10,6 +10,16 @@
  */
 
 // Решение
+const f = function(sum) {
+  for (let i = 1; i < arguments.length; i++) {
+    if (typeof(arguments[i]) === 'number') {
+      sum += arguments[i];
+    } else {
+      throw new Error('all parameters should be a Number type');
+    }
+  }
+ return sum;
+}
 
 /* не удалять */
 f(1, 2, 3); // 6
