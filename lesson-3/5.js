@@ -16,6 +16,24 @@ const array = [1, 2, -4, 3, -9, -1, 7];
 
 // Решение
 
+function isPositive(arr) {
+  if (arr < 0 ) {
+    return false;
+  } else if (arr > 0) {
+    return true;
+  } else if (typeof(arr) === 'string') {
+    throw new Error('Error: parameter type is not a Number');
+  }
+
+  var newArray = [];
+  for (let i = 0, lengthArray = arr.length; i < lengthArray; i++) {
+    if (arr[i] > -1) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+
 /* не удалять */
 isPositive(-3); // false
 isPositive(3); // true
