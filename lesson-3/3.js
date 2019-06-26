@@ -11,6 +11,14 @@
 
 // Решение
 
+const f = function(x, y, z) {
+  if (typeof(x) === 'number' && typeof(y) === 'number' && typeof(z) === 'number') {
+    return (x - y) / z;
+  } else {
+    throw new Error('all parameters type should be a Number');
+  }
+}
+
 /* не удалять */
 f(9, 3, 2); // 3
 f('s', 9, 3); // Error: all parameters type should be a Number
