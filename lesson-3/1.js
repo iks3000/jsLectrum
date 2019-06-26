@@ -9,6 +9,13 @@
  */
 
 // Решение
+const f = function(num) {
+  if (typeof(num) === "number") {
+    return num * num * num;
+  } else {
+    throw new Error("parameter is not a number type");
+  }
+}
 
 /* не удалять */
 f(2); // 8
