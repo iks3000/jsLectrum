@@ -12,6 +12,29 @@ const person = {};
 
 // Решение
 
+Object.defineProperties(person, {
+    "rate": {
+        get() {
+            return this.salary;
+        },
+        set(value) {
+            if(typeof value === 'number' && value > 0) {
+                const date = new Date();
+                Object.defineProperty(this, "salary", {
+                    value: value * date.getDate()
+                });
+            }
+        },
+    },
+
+    "salary": {
+        value: 0,
+        configurable: true
+    }
+});
+
+console.log(Object.getOwnPropertyDescriptors(person));
+
 person.rate = 30;
 
 // Предположим что сегодня 10 января, в этом случае это свойство возвращает число 300
