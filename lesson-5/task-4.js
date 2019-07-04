@@ -16,9 +16,7 @@ const PRICE = '$120';
 // Решение
 
  function extractCurrencyValue(source) {
-  if(source === ''){
-     return 0;
-  } else if(typeof source === 'string') {
+  if(typeof source === 'string') {
        return parseFloat(source.slice(1));
   } else {
      throw new Error('parameters type should be a String')
