@@ -15,6 +15,16 @@ const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#'
 
 // Решение
 
+function filter(arr, callback, thisArg) {
+    let length = arr.length, results = [];
+    for (let i = 0; i < length; i = i + 1) {
+        if (callback.call(thisArg, arr[i], i, arr)) {
+            results.push(arr[i]);
+        }
+    }
+    return results;
+}
+
 const filteredArray = filter(array, function(item, i, arrayRef) {
     console.log(item); // элемент массива
     console.log(i); // индекс элемента

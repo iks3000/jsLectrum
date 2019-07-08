@@ -15,6 +15,13 @@ const array = [1, 2, 3];
 
 // Решение
 
+function forEach(arr, callback, thisArg) {
+    let length = arr.length;
+    for (let i = 0; i < length; i = i + 1) {
+        callback.call(thisArg, arr[i], i, arr);
+    }
+}
+
 const result = forEach(array, function(item, i, arrayRef) {
     console.log(item); // элемент массива
     console.log(i); // индекс элемента

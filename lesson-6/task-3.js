@@ -15,6 +15,16 @@ const array = [1, 2, 3, 4, 5, 6];
 
 // Решение
 
+function every(arr, callback, thisArg) {
+    let length = arr.length;
+    for (let i = 0; i < length; i = i + 1) {
+        if (!callback.call(thisArg, arr[i], i, arr)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 const result = every(array, function(item, i, arrayRef) {
     console.log(item); // элемент массива
     console.log(i); // индекс элемента

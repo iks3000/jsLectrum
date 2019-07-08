@@ -17,6 +17,14 @@ const INITIAL_ACCUMULATOR = 6;
 
 // Решение
 
+function reduce(arr, callback, startValue) {
+        let length = arr.length, result = startValue;
+        for (let i = 0; i < length; i = i + 1) {
+                result = callback.call(null, result, arr[i], i, arr);
+        }
+        return result;
+}
+
 const result = reduce(
     array,
     function(accumulator, item, i, arrayRef) {
