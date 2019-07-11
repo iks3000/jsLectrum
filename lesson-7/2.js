@@ -1,5 +1,5 @@
 /**
- * Задача 7.
+ * Задача 2.
  *
  * Напишите функцию `collect`, которая будет принимать массив в качестве аргумента,
  * и возвращать число.
@@ -20,6 +20,15 @@
  */
 
 // Решение
+
+function collect(arr) {
+
+    const flattedArr = arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? collect(toFlatten) : toFlatten);
+    }, []);
+
+    return flattedArr.reduce((a, b) => a + b, 0);
+}
 
 const array1 = [[[1, 2], [1, 2]], [[2, 1], [1, 2]]];
 console.log(collect(array1)); // 12

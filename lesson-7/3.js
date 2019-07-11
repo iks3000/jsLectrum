@@ -1,5 +1,5 @@
 /**
- * Задача 8.
+ * Задача 3.
  *
  * Напишите функцию `createArray`, которая будет создавать массив с заданными значениями.
  * Первым параметром функция принимает значение, которым заполнять массив.
@@ -12,6 +12,18 @@
  */
 
 // Решение
+
+function createArray(el, index) {
+    if(!el || !index) {
+        throw new Error('must be two arguments');
+    } else if(typeof el !== 'string') {
+        throw new Error('first argument must be a String')
+    } else if (typeof index !== 'number') {
+        throw new Error('second argument must be a Number');
+    } else {
+        return Array(index).fill(el);
+    }
+}
 
 const result = createArray('x', 5);
 

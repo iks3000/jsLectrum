@@ -1,5 +1,5 @@
 /**
- * Задача 6.
+ * Задача 1.
  *
  * Напишите функцию `inspect`, которая будет принимать массив в качестве аргумента,
  * и возвращать новый массив.
@@ -32,6 +32,19 @@ const array = [
 
 
 // Решение
+
+function inspect(arr) {
+    if(Array.isArray(arr)) {
+        var result = arr.filter((str) => {
+            return typeof str === 'string';
+        }).map((lgth) => {
+            return lgth.length;
+        });
+        return result;
+    } else {
+        throw new Error('there is no array in the function');
+    }
+}
 
 const result = inspect(array);
 console.log(result); // [ 7, 11, 7, 12 ]
