@@ -28,6 +28,27 @@
 
 // Решение
 
+const compose = (...callbacks) => initialArgument => {
+    return callbacks.reduceRight((accumulator, next, index) => {
+        debugger;
+        if (typeof next !== 'function') {
+            throw new Error('callback is not a function type.');
+        } else if (
+            typeof accumulator === 'undefined' &&
+            typeof initialArgument !== 'undefined'
+        ) {
+            debugger;
+            throw new Error(
+                `callback at index ${index - 1} did not return any value.`,
+            );
+        }
+
+        debugger;
+
+        return next(accumulator);
+    }, initialArgument);
+};
+
 const result1 = compose(
     prevResult => prevResult + 'o',
     prevResult => prevResult + 'l',
