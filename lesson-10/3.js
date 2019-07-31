@@ -24,6 +24,47 @@
 
 // Решение
 
+const calculateAdvanced = (...functions) => {
+    const results = [];
+    const errors = [];
+
+    const init = (index, func, argument) => {
+        try {
+            const result = index === 0 ? func() : func(argument);
+
+            if (typeof result === 'undefined') {
+                throw new Error(
+                    `callback at index ${index} did not return any value.`,
+                );
+            }
+            results.push(result);
+        } catch (error) {
+            const { name, message } = error;
+
+            errors.push({ index, name, message });
+        }
+    };
+
+    functions.forEach((func, index) => {
+        if (!(typeof func === 'function')) {
+            throw new Error('callback is not a function type.');
+        }
+
+        const argument = results[results.length - 1];
+
+        if (index === 0) {
+            init(index, func);
+        } else {
+            init(index, func, argument);
+        }
+    });
+
+    return {
+        value: results[results.length - 1],
+        errors,
+    };
+};
+
 const result = calculateAdvanced(
     () => {},
     () => {
