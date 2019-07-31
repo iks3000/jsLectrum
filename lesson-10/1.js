@@ -22,6 +22,27 @@
 
 // Решение
 
+
+function bind(fn, context) {
+  if (typeof fn !== "function") {
+    throw Error('first argument must be a Function');
+  }
+
+  if (typeof context !== "object" && Array.isArray(context)) {
+    throw Error('second argument must be an Object');
+  }
+
+  if(Array.isArray(context)) {
+    throw Error('second argument should not be an Array');
+  }
+
+  var bindArgs = [].slice.call(arguments, 2);
+  return function() {
+    var fnArgs = [].slice.call(arguments);
+    return fn.apply(context, bindArgs.concat(fnArgs));
+  };
+};
+
 function getName(greeting, message) {
     return `${greeting} ${message} ${this.name}.`;
 }
