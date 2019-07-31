@@ -19,6 +19,27 @@
 
 // Решение
 
+const calculate = (...functions) => {
+  const results = [];
+
+  functions.forEach((func, index) => {
+    if (!(typeof func === 'function')) {
+      throw new Error('callback is not a function type.');
+    }
+
+    const argument = results[index - 1];
+    const result = index === 0 ? func() : func(argument);
+
+    if (typeof result === 'undefined') {
+      throw new Error(`callback at index ${index} did not return any value.`,);
+    }
+
+    results.push(result);
+  });
+
+  return results[results.length - 1];
+};
+
 const result = calculate(
     () => {
         return 7;
