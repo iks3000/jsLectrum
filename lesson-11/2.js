@@ -11,6 +11,17 @@
 
 // Решение
 
+function createFibonacciGenerator() {
+  let a = 0;
+  let b = 1;
+  return function () {
+    let tmpA = a;
+    a = b
+    b = tmpA + b
+    return a;
+  }
+}
+
 const generateFibonacciNumber = createFibonacciGenerator();
 
 console.log(generateFibonacciNumber()); // 1
