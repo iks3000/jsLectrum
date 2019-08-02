@@ -13,6 +13,25 @@
 
 // Решение
 
+function createFibonacciGenerator() {
+    let a = 0;
+    let b = 1;
+
+    return {
+      print: function getPrint() {
+        let tmpA = a;
+        a = b;
+        b = tmpA + b;
+        return a;
+      },
+      reset: function getReset() {
+        a = 0; 
+        b = 1;
+      return;
+    },  
+  };
+}
+
 const generator1 = createFibonacciGenerator();
 
 console.log(generator1.print()); // 1
