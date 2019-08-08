@@ -33,7 +33,6 @@ function CleanerRobot(
     clearInterval(interval);
   }
 
-
   let timer;
   let interval;
   
@@ -44,10 +43,7 @@ function CleanerRobot(
       `Start the cleaning process. Cleaning time: ${cleaningTime} ${(cleaningTime > 1) ? 'hours' : 'hour'}.`,
     );
 
-    interval = setInterval( function () {
-      timerId++;
-      console.log('interval = ' + timerId)
-    }, 1000)
+    interval = setInterval(() => {timerId++}, 1000);
 
     /* Для удобства время уборки сокращено до формата 1 час = 1 секунда */
     timer = setTimeout(onReady, cleaningTime * 1000);
