@@ -14,20 +14,30 @@
  */
 
 function CleanerRobot(initialEnergy = 0 /* Изначальный заряд батареи */) {
-    this.getEnergy = getEnergy;
-    this.setEnergy = setEnergy;
+  this.getEnergy = getEnergy;
+  this.setEnergy = setEnergy;
 
-    const MAX_ENERGY_CAPACITY = 100; /* Максимальная ёмкость батареи. */
-    let energy = null;
+  const MAX_ENERGY_CAPACITY = 100; /* Максимальная ёмкость батареи. */
+  let energy = null;
 
-    this.setEnergy(initialEnergy);
-
-    function getEnergy() {
-        // Решение
+  this.setEnergy(initialEnergy);
+  
+  function getEnergy() {
+    // Решение
+    return energy;
+  }
+  function setEnergy(newEnergyCapacity) {
+    // Решение
+    if (newEnergyCapacity < 0) {
+      throw new Error('New energy level can not be less than 0.');
     }
-    function setEnergy() {
-        // Решение
+    if (newEnergyCapacity > MAX_ENERGY_CAPACITY) {
+      throw new Error(
+        `New energy level can not be more than ${MAX_ENERGY_CAPACITY}.`,
+      );
     }
+    energy = newEnergyCapacity
+  }
 }
 
 const cleanerRobot = new CleanerRobot(22);
@@ -41,24 +51,24 @@ cleanerRobot.setEnergy(55);
 console.log(`Текущий заряд батареи: ${cleanerRobot.getEnergy()}`);
 
 try {
-    new CleanerRobot(-1);
+  new CleanerRobot(-1);
 } catch (error) {
-    /* Error: New energy level can not be less than 0. */
-    console.log(`${error.name}: ${error.message}`);
+  /* Error: New energy level can not be less than 0. */
+  console.log(`${error.name}: ${error.message}`);
 }
 
 try {
-    cleanerRobot.setEnergy(-22);
+  cleanerRobot.setEnergy(-22);
 } catch (error) {
-    /* Error: New energy level can not be less than 0. */
-    console.log(`${error.name}: ${error.message}`);
+  /* Error: New energy level can not be less than 0. */
+  console.log(`${error.name}: ${error.message}`);
 }
 
 try {
-    cleanerRobot.setEnergy(101);
+  cleanerRobot.setEnergy(101);
 } catch (error) {
-    /* Error: New energy level can not be more than 100. */
-    console.log(`${error.name}: ${error.message}`);
+  /* Error: New energy level can not be more than 100. */
+  console.log(`${error.name}: ${error.message}`);
 }
 
 exports.CleanerRobot = CleanerRobot;
